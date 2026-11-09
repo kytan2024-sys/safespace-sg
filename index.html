@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeSpace SG</title>
+<script defer
+  src="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/chat-messenger.js">
+</script>
+<link rel="stylesheet" href="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/themes/chat-messenger-default.css">
+<link rel="stylesheet" href="https://www.gstatic.com/chat-messenger/sdk/prod/v1.16/themes/chat-messenger-layout.css">
+<style>
+  :root { --ink:#1d2433; --muted:#5b6475; --line:#e3e6ec; --bg:#f7f8fa; --accent:#173053; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 48px 20px 120px; line-height: 1.6; }
+  h1 { font-size: 2rem; margin: 0 0 4px; color: var(--accent); }
+  .tag { color: var(--muted); margin: 0 0 28px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; margin-bottom: 16px; }
+  .card h2 { font-size: 1.05rem; margin: 0 0 8px; }
+  .card p, .card ul { margin: 0; }
+  .card ul { padding-left: 20px; }
+  .help { border-color: #f0c9c9; background: #fff8f8; }
+  footer { color: var(--muted); font-size: .85rem; margin-top: 28px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>SafeSpace SG</h1>
+  <p class="tag">A safe first step for employees in Singapore who are unsure whether what happened at work counts as harassment.</p>
+
+  <div class="card">
+    <h2>How to start</h2>
+    <p>Open the chat window on this page and tell SafeSpace SG what happened, in your own words. You can talk it through, ask whether it might count as harassment, or explore your options at your own pace.</p>
+  </div>
+
+  <div class="card">
+    <h2>Before you chat</h2>
+    <ul>
+      <li>SafeSpace SG is an AI assistant, not a counsellor or lawyer.</li>
+      <li>You do not need to share any names.</li>
+      <li>Information comes from official Singapore sources, but please check anything important with the relevant agency.</li>
+    </ul>
+  </div>
+
+  <div class="card help">
+    <h2>If you are not safe right now</h2>
+    <p>Call 999 or SMS 70999. For someone to talk to, the Samaritans of Singapore (SOS) 24-hour hotline is 1767.</p>
+  </div>
+
+  <footer>A student project for COR2221 AI and Humanity, Singapore Management University (Section G3, Group 3).</footer>
+</main>
+
+<script>
+    window.addEventListener("chat-messenger-loaded", () => {
+      chatSdk.registerContext(
+        chatSdk.prebuilts.ces.createContext({
+          deploymentName: "projects/1022490111511/locations/us/apps/7a56ee74-48e5-49e5-91a5-7ce76068a4a4/deployments/524db4a6-79cd-4a84-bc95-26581b3b1ce6",
+          tokenBroker: {
+            enableTokenBroker: true,
+            enableRecaptcha: false
+          }
+        }),
+      );
+    });
+</script>
+<chat-messenger
+  url-allowlist="*"
+>
+  <chat-messenger-container
+    chat-title="SafeSpace SG"
+    chat-title-icon="https://gstatic.com/dialogflow-console/common/assets/ccai-favicons/conversational_agents.png"
+  >
+    <chat-reset-session-button
+      slot="titlebar-actions"
+      title-text="Start new chat"
+    ></chat-reset-session-button>
+    <chat-toggle-dialog-button
+      slot="titlebar-actions"
+      title-text-expanded="Collapse"
+      title-text-collapsed="Expand"
+    ></chat-toggle-dialog-button>
+    <chat-messenger-close-button
+      slot="titlebar-actions"
+      title-text="Close"
+    ></chat-messenger-close-button>
+  </chat-messenger-container>
+</chat-messenger>
+</body>
+</html>
